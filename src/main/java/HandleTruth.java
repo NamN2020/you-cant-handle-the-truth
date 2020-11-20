@@ -1,7 +1,15 @@
 import java.util.*;
+/*
+    Nam Nguyen
+    11/21/20
+    CSS 143B
+    Quiz 2
+ */
+
 
 public class HandleTruth {
-    public static void wordCount(String text) {
+
+    public static TreeMap wordCount(String text) {
         // split the message into word set
         String[] words = text.split(" ");
 
@@ -14,9 +22,12 @@ public class HandleTruth {
             }
             wordMap.put(word, 1);
         }
+        // Removing print statements
+        /*
         for (Map.Entry<String, Integer> entry : wordMap.entrySet()) {
             System.out.println(entry);
         }
+         */
 
         // sort the map based on number of occurrences
         TreeMap<Integer, Set<String>> sortedMap = new TreeMap<>(Collections.reverseOrder());
@@ -28,8 +39,13 @@ public class HandleTruth {
             sortedMap.put(entry.getValue(), values);
         }
 
+        // Removing print statements
+        /*
         for (Map.Entry<Integer, Set<String>> entry : sortedMap.entrySet()) {
             System.out.println(entry);
         }
+         */
+
+        return sortedMap;
     }
 }

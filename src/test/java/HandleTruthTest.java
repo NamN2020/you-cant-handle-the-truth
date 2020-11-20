@@ -1,8 +1,22 @@
 import org.junit.Test;
+import java.util.*;
+/*
+    Nam Nguyen
+    11/21/20
+    CSS 143B
+    Quiz 2
+
+    Sources: https://stackoverflow.com/questions/8864111/storing-a-hashmap-inside-another-hashmap-and-improving-performance
+ */
 
 public class HandleTruthTest {
     @Test
-    public void testWordCount(){
+    public void makeshiftTest() {
+        HandleTruth.wordCount("yes");
+    }
+
+    @Test
+    public void testWordCount() {
         String[][] inputs = {
                 {"son we live in a world that has walls and those walls have to be guarded by men with guns " +
                         "whos gonna do it you you lieutenant weinberg i have a greater responsibility than you " +
@@ -21,10 +35,15 @@ public class HandleTruthTest {
         String[][] expected = {
                 {null}
         };
+        //TreeMap<Integer, Set<String>> expect = new TreeMap<Integer, Set<String>>({18=[you], 9=[the], 8=[a, and, i], 6=[that], 5=[have, to], 3=[in, use, of, dont, we, on], 2=[lives, want, words, it, while, way, as, walls, what, provide, me, luxury, wall], 1=[explain, very, guns, saved, lieutenant, about, your, these, saves, would, pick, fathom, grotesque, incomprehensible, because, greater, give, sleeps, went, loyalty, myself, them, then, something, at, knowing, santiago, curse, weinberg, entitled, whos, be, probably, world, freedom, responsibility, are, by, tragic, backbone, man, stand, inclination, think, gonna, suggest, places, thank, under, punchline, honor, existence, defending, questions, do, manner, down, either, son, post, than, talk, has, up, those, possibly, which, otherwise, need, like, my, parties, know, santiagos, rises, who, deep, code, death, rather, for, weep, life, nor, guarded, can, weapon, not, men, said, just, live, spent, damn, with, truth, marines, neither, time, blanket]});
 
-        for(int i = 0; i < inputs.length; i ++){
+        HashMap<Integer, TreeMap<Integer, Set<String>>> outer = new HashMap<Integer, TreeMap<Integer, Set<String>>>();
 
+        for (int i = 0; i < inputs.length; i++) {
+            String text = inputs[i].toString();
+            TreeMap<Integer, Set<String>> actual = HandleTruth.wordCount(text);
 
+            //assert (expected,actual);
         }
 
     }
