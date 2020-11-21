@@ -19,31 +19,16 @@ public class HandleTruthTest {
     }
 
     @Test
-    public void tempTest() {
-        TreeMap<Integer, Set<String>> testMap = new TreeMap<Integer, Set<String>>();
-        Set<String> oneWord = new HashSet<String>();
-        oneWord.add("Four");
-        oneWord.add("Three");
-        testMap.put(1, oneWord);
-
-        String msg = "Three Four";
-        TreeMap<Integer, Set<String>> actual = HandleTruth.wordCount(msg);
-
-        assertEquals(testMap, actual);
-
-
-    }
-
-    @Test
     public void testWordCount() {
-        String[][] inputs = {
-                {"son we live in a world that has walls and those walls have to be guarded by men with guns " +
-                        "whos gonna do it you you lieutenant weinberg i have a greater responsibility than you " +
-                        "can possibly fathom you weep for santiago and you curse the marines you have that luxury " +
-                        "you have the luxury of not knowing what i know that santiagos death while tragic probably" +
-                        " saved lives and my existence while grotesque and incomprehensible to you saves lives"}
+        String[] inputs = {
+                "Four Three",
+                // {"son we live in a world that has walls and those walls have to be guarded by men with guns " +
+                // "whos gonna do it you you lieutenant weinberg i have a greater responsibility than you " +
+                // "can possibly fathom you weep for santiago and you curse the marines you have that luxury " +
+                // "you have the luxury of not knowing what i know that santiagos death while tragic probably" +
+                // " saved lives and my existence while grotesque and incomprehensible to you saves lives"}
         };
-        TreeMap<Integer, Set<String>> case1 = new TreeMap<Integer, Set<String>>();
+
 
         TreeMap<Integer, Set<String>> testMap = new TreeMap<Integer, Set<String>>();
         Set<String> oneWord = new HashSet<String>();
@@ -56,20 +41,18 @@ public class HandleTruthTest {
 
         //TreeMap<Integer, Set<String>>[] expected = {testMap};
 
+        ArrayList<TreeMap<Integer, Set<String>>> arrayTing = new ArrayList<TreeMap<Integer, Set<String>>>();
+        arrayTing.add(testMap);
 
-        TreeMap<Integer, String> testCase1 = new TreeMap<Integer, String>();
-        testCase1.put(18, "you");
-        testCase1.put(9, "the");
-        //testCase1.put(8, {"a", "and", "i"});
+        TreeMap<Integer, Set<String>> temp = HandleTruth.wordCount(inputs[0]);
 
-        TreeMap<Integer, Set<String>> temp = new TreeMap<>();
-
+        assertEquals(testMap, temp);
 
         for (int i = 0; i < inputs.length; i++) {
-            String text = inputs[i].toString();
-            TreeMap<Integer, Set<String>> actual = HandleTruth.wordCount(text);
+            TreeMap<Integer, Set<String>> actual = HandleTruth.wordCount(inputs[i]);
+            TreeMap<Integer, Set<String>> expected = arrayTing.get(i);
 
-            //assertEquals(expected, actual);
+            assertEquals(expected, actual);
         }
 
     }
